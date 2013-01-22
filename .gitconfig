@@ -1,0 +1,14 @@
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+
+[alias]
+	st = status
+	lo = log
+	di = diff
+	co = checkout
+	ci = commit
+	br = branch
+
