@@ -15,3 +15,5 @@
 	ci = commit
 	br = branch
 
+[push]
+	default = simple
