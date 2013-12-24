@@ -1,4 +1,3 @@
-
 [user]
 	name = Sean Leather
 
@@ -15,6 +14,5 @@
 	ci = commit
 	br = branch
 
-# This option was added in v1.7.11, but it causes problems with older versions.
-#[push]
-#	default = simple
+[push]
+	default = simple
