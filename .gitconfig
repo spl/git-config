@@ -10,6 +10,7 @@
 	st = status
 	lo = log
 	di = diff
+	dt = difftool
 	co = checkout
 	ci = commit
 	br = branch
@@ -22,3 +23,6 @@
 
 [include]
 	path = .gitconfig.local
+
+[diff]
+	tool = vimdiff
