@@ -17,7 +17,8 @@
 	up = "!git remote update -p; git merge --ff-only @{u}"
 
 [push]
-	default = simple
+	# Always assume current branch for pushing
+	default = current
 
 [branch]
 	autosetuprebase = always
