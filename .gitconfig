@@ -9,11 +9,13 @@
 [alias]
 	st = status
 	lo = log
+	lop = log -p
 	di = diff
 	dt = difftool
 	co = checkout
 	ci = commit
-	br = branch
+	br = branch -vv
+	rem = remote -v
 	up = "!git remote update -p; git merge --ff-only @{u}"
 
 [push]
