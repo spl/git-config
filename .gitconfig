@@ -31,3 +31,4 @@
 
 [diff]
 	tool = vimdiff
+	renames = true
