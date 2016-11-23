@@ -20,6 +20,38 @@
 	br = branch -vv
 	rem = remote -v
 	up = "!git remote update -p; git merge --ff-only @{u}"
+	# fixws: Fix trailing whitespace in the index
+	#
+	# Source: http://stackoverflow.com/a/15398512/545794
+	#
+	# The 'git stash save' fails if the tree is clean (instead of
+	# creating an empty stash :P). So, we only 'stash' and 'pop' if
+	# the tree is dirty.
+	#
+	# The 'git rebase --whitespace=fix HEAD~' throws away the commit
+	# if it's empty, and adding '--keep-empty' prevents the whitespace
+	# from being fixed. So, we first check that the index is dirty.
+	#
+	# Also:
+	# - '(! git diff-index --quiet --cached HEAD)' is true (zero) if
+	#   the index is dirty
+	# - '(! git diff-files --quiet .)' is true if the tree is dirty
+	#
+	# The 'rebase --whitespace=fix' trick is from here:
+	# http://stackoverflow.com/a/19156679/470844
+	fix-ws = !"\
+	  if (! git diff-files --quiet .) && \
+	     (! git diff-index --quiet --cached HEAD); then \
+	    git commit -m FIXWS_SAVE_INDEX && \
+	    git stash save FIXWS_SAVE_TREE && \
+	    git rebase --whitespace=fix HEAD~ && \
+	    git stash pop && \
+	    git reset --soft HEAD~; \
+	  elif (! git diff-index --quiet --cached HEAD); then \
+	    git commit -m FIXWS_SAVE_INDEX && \
+	    git rebase --whitespace=fix HEAD~ && \
+	    git reset --soft HEAD~; \
+	  fi"
 
 [push]
 	# Always assume current branch for pushing
