@@ -57,6 +57,8 @@
 [push]
 	# Always assume current branch for pushing
 	default = current
+	# Always push tags
+	followTags = true
 
 [branch]
 	autosetuprebase = always
@@ -67,3 +69,7 @@
 [diff]
 	tool = vimdiff
 	renames = true
+
+[merge]
+	# Only allow a fast-forward merge. Override with --ff if desired.
+	ff = only
