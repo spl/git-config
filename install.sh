@@ -7,3 +7,4 @@ LN="ln -nsf --"
 SRC=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 
 $LN "$SRC/.gitconfig" "$HOME/"
+$LN "$SRC/.gitignore_global" "$HOME/"
