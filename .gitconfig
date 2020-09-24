@@ -3,6 +3,9 @@
 
 [core]
 	excludesfile = ~/.gitignore_global
+        # Show Unicode instead of octal codes in console output.
+        # Source: https://stackoverflow.com/a/22828826/545794
+	quotepath = off
 
 [color]
 	diff = auto
